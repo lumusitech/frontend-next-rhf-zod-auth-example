@@ -25,12 +25,17 @@ export const registerSchema = object({
     .min(1, 'Confirm Password is required')
     .min(6, 'Confirm Password must be more than 6 characters')
     .max(32, 'Confirm Password must be less than 32 characters'),
-}).superRefine(({ confirmPassword, password }, ctx) => {
-  if (confirmPassword !== password) {
-    ctx.addIssue({
-      code: 'custom',
-      message: 'The passwords did not match',
-      path: ['confirmPassword'],
-    })
-  }
+}).refine(data => data.password === data.confirmPassword, {
+  message: 'Passwords do not match',
+  path: ['confirmPassword'],
 })
+// refine is sugar for superRefine
+//.superRefine(({ confirmPassword, password }, ctx) => {
+//   if (confirmPassword !== password) {
+//     ctx.addIssue({
+//       code: 'custom',
+//       message: 'The passwords did not match',
+//       path: ['confirmPassword'],
+//     })
+//   }
+// })
