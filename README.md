@@ -1,3 +1,7 @@
+Tutorial: [tutorial-youtube](https://www.youtube.com/watch?v=vkV4wApku5s&t=3024s)
+
+TODO: Continue with auth js section
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
